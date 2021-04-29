@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>probes</title>
+    <script src="common.js"></script>
+    <link href="./styles.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+
+        let rootClasses = ["testsuite", "module"];
+        let classes;
+        let editors = {
+            "java.lang.String": {
+                ele: 'textarea',
+                classList: 'string-editor'
+            },
+            "boolean": {
+                ele: 'input',
+                attribs: {
+                    type: 'checkbox'
+                },
+                classList: 'boolean-editor'
+            },
+            "java.util.Map": {
+                ele: 'div',
+                classList: 'kvp-editor',
+                children: [
+                    {
+                        ele: 'input',
+                        label: 'Key',
+                        classList: 'kvp-k-editor'
+                    },
+                    {
+                        ele: 'input',
+                        label: 'Value',
+                        classList: 'kvp-v-editor'
+                    }
+                ]
+            }
+        }
+
+        window.onload = function () {
+            startUp();
+        }
+
+        function startUp() {
+            get("/uiconfig.json")
+                .then(resp => JSON.parse(resp.response))
+                .then(config => {
+                    console.log(config)
+                    classes = config
+                    showOptions(g('root'), rootClasses, true)
+                })
+        }
+
+        function _getEditorForType(ti) {
+            let ret = [];
+            if (ti.typeNames.length > 1) {
+                ret.push({
+                    ele: 'div',
+                    classList: 'options-holder',
+                    onload: function (ele) {
+                        g('onload', ele)
+                        showOptions(ele, ti.typeNames, ti.singleValued)
+                    }
+                })
+            } else {
+                let tname = ti.typeNames[0];
+                let e = editors[tname];
+                if (!e) {
+                    if (classes[tname]) {
+                        ret.push(getEditorForClass(classes[tname]))
+                    } else {
+                        console.warn(tname)
+                    }
+                } else {
+                    ret.push(e)
+                }
+            }
+            if (!ti.singleValued) {
+                ret.push({
+                    ele: 'div',
+                    classList: 'field-editor-controls',
+                    children: [
+                        {
+                            ele: 'button',
+                            classList: 'remove-field-btn',
+                            text: '-',
+                            evnts: {
+                                click: function () {
+                                    this.parentNode.parentNode.remove()
+                                }
+                            }
+                        },
+                        {
+                            ele: 'button',
+                            classList: 'add-field-btn',
+                            text: '+',
+                            evnts: {
+                                click: function () {
+                                    let newEd = render('editor', getEditorForType(ti))
+                                    this.parentNode.parentNode.parentNode.insertBefore(newEd, this.parentNode.parentNode.nextSibling)
+                                }
+                            }
+                        }
+                    ]
+                })
+            }
+            return ret;
+        }
+
+        function getEditorForType(ti) {
+            return {
+                ele: 'div',
+                classList: 'field-editor',
+                children: _getEditorForType(ti)
+            }
+        }
+
+        function getEditorFields(cls) {
+            return Object.keys(cls.fields)
+                .map(key => cls.fields[key])
+                .map(field => {
+                    return {
+                        ele: 'div',
+                        classList: 'field',
+                        children: [
+                            {
+                                ele: 'i',
+                                classList: 'field-name',
+                                text: field.displayName
+                            },
+                            {
+                                ele: 'span',
+                                classList: 'field-desc-title',
+                                attribs: {
+                                    innerHTML: '&#x1f6c8;',
+                                    title: field.description
+                                }
+                            },
+                            getEditorForType(field.typeInfo)
+                        ]
+                    }
+                })
+        }
+
+        function getEditorForClass(cls) {
+            return {
+                ele: 'div',
+                classList: `container ${cls.name}`,
+                children: [
+                    {
+                        ele: 'b',
+                        classList: 'class-name',
+                        text: cls.displayName || cls.name,
+                    },
+                    {
+                        ele: 'span',
+                        classList: 'class-description',
+                        attribs: {
+                            innerHTML: '&#x1f6c8;',
+                            title: cls.description
+                        }
+                    },
+                    ...getEditorFields(cls)
+                ]
+            }
+        }
+
+        function showEditor(option, editorParent) {
+            let ed = render('editor', getEditorForClass(classes[option]))
+            editorParent.insertBefore(ed, editorParent.lastChild)
+        }
+
+        /* args:
+         *   options : a list of options
+         *   editorParent : a HTML element where the editor for selected option will be added
+         */
+        function getTemplatedOptions(options, editorParent, singleItem) {
+            return options
+                .map(option => {
+                    return {
+                        ele: 'option',
+                        classList: 'optionbox',
+                        attribs: {
+                            value: option
+                        },
+                        text: option,
+                        evnts: {
+                            click: function () {
+                                showEditor(this.value, ele)
+                                if (singleItem) {
+                                    x.select2("destroy")
+                                    x.remove()
+                                }
+                            }
+                        }
+                    }
+                })
+        }
+
+        function showOptions(ele, optionNames, singleItem) {
+            let e = render("options", {
+                ele: "select",
+                classList: "container",
+                children: [
+                    ...getTemplatedOptions(optionNames, ele, singleItem)
+                ]
+            }, z => 0)
+            ele.appendChild(e)
+            let x = $(e)
+            x.select2({
+                placeholder: {
+                    text: "What do you want to create?"
+                },
+                templateSelection: function (state) {
+                    return $(`
+                        <div>
+                            <b>${classes[state.text].displayName}</b>
+                        </div>
+                        `)
+                },
+                templateResult: function (state) {
+                    console.log(state)
+                    return $(`
+                        <div>
+                            <b>${state.loading ? "" : classes[state.text].displayName}</b>
+                            <i>${state.loading ? "" : classes[state.text].description}</i>
+                        </div>
+                    `)
+                }
+            }).change(function (e, item) {
+                showEditor(this.value, ele)
+                if (singleItem) {
+                    x.select2("destroy")
+                    x.remove()
+                }
+            })
+        }
+
+        function render(name, spec, elemCreated, container) {
+            let e;
+            if (!spec.preBuilt) {
+                e = document.createElement(spec.ele);
+                spec.iden && elemCreated(spec.iden, e)
+                if (spec.text) e.innerHTML = spec.text;
+                if (spec.classList) {
+                    e.classList = `${name}-` + spec.classList.split(/\s+/).join(` ${name}-`)
+                }
+                spec.attribs && Object.keys(spec.attribs).forEach(key => {
+                    e[key] = spec.attribs[key]
+                })
+                spec.styles && Object.keys(spec.styles).forEach(key => {
+                    e.style[key] = spec.styles[key]
+                })
+                spec.evnts && Object.keys(spec.evnts).forEach(key => {
+                    e.addEventListener(key, spec.evnts[key])
+                })
+                if (spec.children) {
+                    if (spec.children instanceof Function) {
+                        spec.children().map(x => e.appendChild(x))
+                    }
+                    else spec.children.forEach(child => render(name, child, elemCreated, e))
+                }
+            } else {
+                e = spec.ele;
+            }
+            if (spec.onload) {
+                spec.onload(e);
+            }
+            if (container) {
+                if (spec.label) {
+                    let rgid = "id_" + Math.random();
+                    e.id = rgid
+                    let lbl = document.createElement('label')
+                    lbl.innerHTML = spec.label
+                    lbl.for = rgid
+                    container.appendChild(lbl)
+                }
+                container.appendChild(e)
+                return container;
+            }
+            return e;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="root" class="optionsDiv">
+
+    </div>
+
+</body>
+
+</html>

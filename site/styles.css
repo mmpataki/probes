@@ -1,0 +1,88 @@
+.options-container {
+    margin: 20px 0px;
+    min-width: 300px;
+    width: 300px;
+}
+
+.options-optionbox {
+    display: inline-block;
+    padding: 5px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.options-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: block;
+}
+
+.options-description {
+
+}
+
+.class-desc
+
+.editor-container, .editor-field{
+    display: block;
+    margin-left: 20px;
+}
+
+.editor-container {
+    float: left;
+}
+
+.editor-field {
+    clear: both;
+}
+
+.editor-item-container {
+    display: inline;
+}
+
+.editor-field-name {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.editor-field-desc-title {
+    vertical-align: top;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.editor-field-editor {
+    display: block;
+    padding-left: 30px;
+    clear: both;
+    position: relative;
+}
+
+.editor-class-name {
+    display: inline;
+}
+
+label {
+    margin: 0px 5px;
+}
+
+.editor-string-editor {
+    min-width: 300px;
+}
+
+.editor-options-holder {
+    display: inline;
+}
+
+.editor-task, .editor-test, .editor-condition {
+    margin-bottom: 10px;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.editor-field-editor-controls {
+    display: inline;
+    position: absolute;
+    right: 0px;
+}

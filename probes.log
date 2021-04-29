@@ -1,0 +1,498 @@
+21/04/23 19:05:50 DEBUG probes.Action: Doing RunAction
+21/04/23 19:05:50 INFO probes.RunAction: Running : infa.eic.graph-corruption
+21/04/23 19:05:50 DEBUG util.DefLoader: registering taskargs subtype: probes.models.condition.RefBasedConditionTaskArgs
+21/04/23 19:05:50 DEBUG util.DefLoader: registering taskargs subtype: probes.models.common.Command
+21/04/23 19:05:50 DEBUG util.DefLoader: registering taskargs subtype: probes.models.test.RefBasedTestTaskArgs
+21/04/23 19:05:50 DEBUG util.DefLoader: registering task subtype: probes.models.test.TestTask
+21/04/23 19:05:50 DEBUG util.DefLoader: registering task subtype: probes.models.condition.ConditionTask
+21/04/23 19:05:50 DEBUG util.DefLoader: registering task subtype: probes.models.noop.UniTask
+21/04/23 19:05:50 DEBUG util.DefLoader: registering task subtype: probes.models.iterator.IteratorTask
+21/04/23 19:05:50 DEBUG util.DefLoader: registering task subtype: probes.models.noop.NoOpTask
+21/04/23 19:05:50 DEBUG util.DefLoader: registering exectype subtype: probes.models.executiontype.LocalExecutionType
+21/04/23 19:05:50 DEBUG util.DefLoader: registering exectype subtype: probes.models.executiontype.SSHExecutionType
+21/04/23 19:05:50 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.UserInputBasedNameResolver
+21/04/23 19:05:50 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.PropsFileBasedNameResolver
+21/04/23 19:05:50 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.EnvBasedNameResolver
+21/04/23 19:05:50 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.CommandBasedNameResolver
+21/04/23 19:05:50 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.RefBasedNameResolver
+21/04/23 19:05:50 DEBUG util.DefLoader: registering variables subtype: probes.models.variables.SingleValuedVariable
+21/04/23 19:05:50 DEBUG util.DefLoader: registering variables subtype: probes.models.variables.Collection
+21/04/23 19:05:50 DEBUG util.DefLoader: registering variables subtype: probes.models.variables.StringParsedCollection
+21/04/23 19:05:50 DEBUG util.DefLoader: registering variables subtype: probes.models.variables.ListBasedCollection
+21/04/23 19:05:50 DEBUG util.DefLoader: Loading ./modules/infa/eic/graph-corruption.json
+21/04/23 19:05:50 INFO nameresolver.UserInputBasedNameResolver: loaded from cache [uin.1619184777192] {domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}
+21/04/23 19:05:50 INFO models.TestSuiteDefn: running task[probes.models.test.TestTask :: chk-res-case-sensitivity-change]
+21/04/23 19:05:50 INFO models.Task: running task : [probes.models.test.TestTask :: chk-res-case-sensitivity-change]
+21/04/23 19:05:50 INFO test.TestTask: running test : [probes.models.test.TestTask :: chk-res-case-sensitivity-change]
+21/04/23 19:05:50 INFO models.Task: Bef resolve($INFA_HOME) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${MYDIR}/reschangedcase.txt) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${domainName}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = domainName
+21/04/23 19:05:50 DEBUG util.DefLoader: Loading ./modules/infa/isp/service-props-provider.json
+21/04/23 19:05:50 DEBUG util.DefLoader: file not found exception for: ./modules/infa/isp/service-props-provider.json
+21/04/23 19:05:50 DEBUG util.DefLoader: Loading ./modules/infa/isp/module.json
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = domainName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = serviceName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainUserName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainPassword
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = securityDomain
+21/04/23 19:05:50 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@3d299e3
+21/04/23 19:05:50 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:05:50 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve domainNameas command failed to execute
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${var:infa.eic.eic-mrs}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${domainUserName}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = domainUserName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = domainUserName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = serviceName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainUserName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainPassword
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = securityDomain
+21/04/23 19:05:50 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@4f638935
+21/04/23 19:05:50 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:05:50 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve domainUserNameas command failed to execute
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainUserName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${domainUserPassword}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = domainUserPassword
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = domainUserPassword
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = serviceName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainUserName
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainPassword
+21/04/23 19:05:50 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = securityDomain
+21/04/23 19:05:50 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@4387b79e
+21/04/23 19:05:50 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:05:50 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve domainUserPasswordas command failed to execute
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserPassword
+21/04/23 19:05:50 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainUserPassword
+21/04/23 19:05:53 INFO models.Task: Bef resolve(${securityDomain}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = securityDomain
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = securityDomain
+21/04/23 19:05:53 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184953929) for = domainName
+21/04/23 19:05:53 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184953929) for = serviceName
+21/04/23 19:05:53 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184953929) for = domainUserName
+21/04/23 19:05:53 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184953929) for = domainPassword
+21/04/23 19:05:53 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184953929) for = securityDomain
+21/04/23 19:05:53 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@402e37bc
+21/04/23 19:05:53 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:05:53 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve securityDomainas command failed to execute
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184953929) for = securityDomain
+21/04/23 19:05:53 INFO models.Task: Bef resolve(${catalogServiceName}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = catalogServiceName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = catalogServiceName
+21/04/23 19:05:53 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184953929) for = domainName
+21/04/23 19:05:53 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184953929) for = serviceName
+21/04/23 19:05:53 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184953929) for = domainUserName
+21/04/23 19:05:53 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184953929) for = domainPassword
+21/04/23 19:05:53 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184953929) for = securityDomain
+21/04/23 19:05:53 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@79ad8b2f
+21/04/23 19:05:53 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:05:53 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve catalogServiceNameas command failed to execute
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = catalogServiceName
+21/04/23 19:05:53 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184953929) for = catalogServiceName
+21/04/23 19:05:54 INFO models.Task: Bef resolve(${resourceName}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = resourceName
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = resourceName
+21/04/23 19:05:54 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, catalogServiceName=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184954260) for = domainName
+21/04/23 19:05:54 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, catalogServiceName=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184954260) for = serviceName
+21/04/23 19:05:54 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, catalogServiceName=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184954260) for = domainUserName
+21/04/23 19:05:54 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, catalogServiceName=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184954260) for = domainPassword
+21/04/23 19:05:54 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, catalogServiceName=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184954260) for = securityDomain
+21/04/23 19:05:54 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@1df82230
+21/04/23 19:05:54 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:05:54 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve resourceNameas command failed to execute
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = resourceName
+21/04/23 19:05:54 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, catalogServiceName=a, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=a}, lastFile=uin.1619184954260) for = resourceName
+21/04/23 19:05:54 INFO models.Task: Bef resolve(| grep -e status -e START -e DONE -e endTime -e resourceName -e 'Case Sensitive' -A 3 | grep -e status -e START -e endTime -e resourceName -e 'Case Sensitive' -e true -e false | tr ',' ' ' | tr '"' ' ' | sed 's/endTime://g' | sed 's/resourceName : //g' | sed 's/optionId : //g' | sed 's/status://g' | grep -e true -e false | sort | uniq | wc -l | xargs test 1 ==) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:05:54 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@22635ba0
+21/04/23 19:05:54 INFO executiontype.CommandExecutor: process finished with code = 123
+21/04/23 19:05:54 INFO models.Task: task finished: [probes.models.test.TestTask :: chk-res-case-sensitivity-change] status=123
+21/04/23 19:05:54 INFO models.TestSuiteDefn: task finished : [probes.models.test.TestTask :: chk-res-case-sensitivity-change]
+21/04/23 19:05:54 INFO probes.RunAction: Finished infa.eic.graph-corruption
+21/04/23 19:05:54 DEBUG probes.Action: finished RunAction
+21/04/23 19:08:04 DEBUG probes.Action: Doing RunAction
+21/04/23 19:08:04 INFO probes.RunAction: Running : infa.eic.graph-corruption
+21/04/23 19:08:04 DEBUG util.DefLoader: registering taskargs subtype: probes.models.condition.RefBasedConditionTaskArgs
+21/04/23 19:08:04 DEBUG util.DefLoader: registering taskargs subtype: probes.models.common.Command
+21/04/23 19:08:04 DEBUG util.DefLoader: registering taskargs subtype: probes.models.test.RefBasedTestTaskArgs
+21/04/23 19:08:04 DEBUG util.DefLoader: registering task subtype: probes.models.test.TestTask
+21/04/23 19:08:04 DEBUG util.DefLoader: registering task subtype: probes.models.condition.ConditionTask
+21/04/23 19:08:04 DEBUG util.DefLoader: registering task subtype: probes.models.noop.UniTask
+21/04/23 19:08:04 DEBUG util.DefLoader: registering task subtype: probes.models.iterator.IteratorTask
+21/04/23 19:08:04 DEBUG util.DefLoader: registering task subtype: probes.models.noop.NoOpTask
+21/04/23 19:08:04 DEBUG util.DefLoader: registering exectype subtype: probes.models.executiontype.LocalExecutionType
+21/04/23 19:08:04 DEBUG util.DefLoader: registering exectype subtype: probes.models.executiontype.SSHExecutionType
+21/04/23 19:08:04 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.UserInputBasedNameResolver
+21/04/23 19:08:04 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.PropsFileBasedNameResolver
+21/04/23 19:08:04 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.EnvBasedNameResolver
+21/04/23 19:08:04 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.CommandBasedNameResolver
+21/04/23 19:08:04 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.RefBasedNameResolver
+21/04/23 19:08:04 DEBUG util.DefLoader: registering variables subtype: probes.models.variables.SingleValuedVariable
+21/04/23 19:08:04 DEBUG util.DefLoader: registering variables subtype: probes.models.variables.Collection
+21/04/23 19:08:04 DEBUG util.DefLoader: registering variables subtype: probes.models.variables.StringParsedCollection
+21/04/23 19:08:04 DEBUG util.DefLoader: registering variables subtype: probes.models.variables.ListBasedCollection
+21/04/23 19:08:04 DEBUG util.DefLoader: Loading ./modules/infa/eic/graph-corruption.json
+21/04/23 19:08:04 INFO nameresolver.UserInputBasedNameResolver: loaded from cache [uin.1619184777192] {domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}
+21/04/23 19:08:04 INFO models.TestSuiteDefn: running task[probes.models.test.TestTask :: chk-res-case-sensitivity-change]
+21/04/23 19:08:04 INFO models.Task: running task : [probes.models.test.TestTask :: chk-res-case-sensitivity-change]
+21/04/23 19:08:04 INFO test.TestTask: running test : [probes.models.test.TestTask :: chk-res-case-sensitivity-change]
+21/04/23 19:08:04 INFO models.Task: Bef resolve(${INFA_HOME}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = INFA_HOME
+21/04/23 19:08:04 DEBUG util.DefLoader: Loading ./modules/infa/isp/service-props-provider.json
+21/04/23 19:08:04 DEBUG util.DefLoader: file not found exception for: ./modules/infa/isp/service-props-provider.json
+21/04/23 19:08:04 DEBUG util.DefLoader: Loading ./modules/infa/isp/module.json
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = INFA_HOME
+21/04/23 19:08:04 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainName
+21/04/23 19:08:04 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = serviceName
+21/04/23 19:08:04 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainUserName
+21/04/23 19:08:04 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainPassword
+21/04/23 19:08:04 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = securityDomain
+21/04/23 19:08:04 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@3d299e3
+21/04/23 19:08:04 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:08:04 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve INFA_HOMEas command failed to execute
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = INFA_HOME
+21/04/23 19:08:04 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = INFA_HOME
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${MYDIR}/reschangedcase.txt) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainName}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = domainName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = domainName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = domainName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = serviceName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = domainUserName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = domainPassword
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = securityDomain
+21/04/23 19:08:07 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@27c86f2d
+21/04/23 19:08:07 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:08:07 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve domainNameas command failed to execute
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = domainName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${var:infa.eic.eic-mrs}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainUserName}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = domainUserName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = domainUserName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = domainName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = serviceName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = domainUserName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = domainPassword
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = securityDomain
+21/04/23 19:08:07 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@197d671
+21/04/23 19:08:07 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:08:07 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve domainUserNameas command failed to execute
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = domainUserName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainUserPassword}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = domainUserPassword
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = domainUserPassword
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = domainName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = serviceName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = domainUserName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = domainPassword
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = securityDomain
+21/04/23 19:08:07 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@402e37bc
+21/04/23 19:08:07 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:08:07 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve domainUserPasswordas command failed to execute
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserPassword
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=uin.1619185087067) for = domainUserPassword
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${securityDomain}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = securityDomain
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = securityDomain
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185087890) for = domainName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185087890) for = serviceName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185087890) for = domainUserName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185087890) for = domainPassword
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185087890) for = securityDomain
+21/04/23 19:08:07 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@79ad8b2f
+21/04/23 19:08:07 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:08:07 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve securityDomainas command failed to execute
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185087890) for = securityDomain
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${catalogServiceName}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = catalogServiceName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = catalogServiceName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185087890) for = domainName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185087890) for = serviceName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185087890) for = domainUserName
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185087890) for = domainPassword
+21/04/23 19:08:07 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185087890) for = securityDomain
+21/04/23 19:08:07 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@1df82230
+21/04/23 19:08:07 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:08:07 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve catalogServiceNameas command failed to execute
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = catalogServiceName
+21/04/23 19:08:07 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185087890) for = catalogServiceName
+21/04/23 19:08:08 INFO models.Task: Bef resolve(${resourceName}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = resourceName
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = resourceName
+21/04/23 19:08:08 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, catalogServiceName=1, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185088130) for = domainName
+21/04/23 19:08:08 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, catalogServiceName=1, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185088130) for = serviceName
+21/04/23 19:08:08 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, catalogServiceName=1, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185088130) for = domainUserName
+21/04/23 19:08:08 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, catalogServiceName=1, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185088130) for = domainPassword
+21/04/23 19:08:08 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, catalogServiceName=1, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185088130) for = securityDomain
+21/04/23 19:08:08 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@22635ba0
+21/04/23 19:08:08 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:08:08 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve resourceNameas command failed to execute
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = resourceName
+21/04/23 19:08:08 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, catalogServiceName=1, INFA_HOME=1, domainName=D_Colorad, domainPassword=a, serviceName=a, domainUserPassword=1}, lastFile=uin.1619185088130) for = resourceName
+21/04/23 19:08:08 INFO models.Task: Bef resolve(| grep -e status -e START -e DONE -e endTime -e resourceName -e 'Case Sensitive' -A 3 | grep -e status -e START -e endTime -e resourceName -e 'Case Sensitive' -e true -e false | tr ',' ' ' | tr '"' ' ' | sed 's/endTime://g' | sed 's/resourceName : //g' | sed 's/optionId : //g' | sed 's/status://g' | grep -e true -e false | sort | uniq | wc -l | xargs test 1 ==) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:08:08 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@13c10b87
+21/04/23 19:08:08 INFO executiontype.CommandExecutor: process finished with code = 123
+21/04/23 19:08:08 INFO models.Task: task finished: [probes.models.test.TestTask :: chk-res-case-sensitivity-change] status=123
+21/04/23 19:08:08 INFO models.TestSuiteDefn: task finished : [probes.models.test.TestTask :: chk-res-case-sensitivity-change]
+21/04/23 19:08:08 INFO probes.RunAction: Finished infa.eic.graph-corruption
+21/04/23 19:08:08 DEBUG probes.Action: finished RunAction
+21/04/23 19:08:33 DEBUG probes.Action: Doing RunAction
+21/04/23 19:08:33 INFO probes.RunAction: Running : infa.eic.graph-corruption
+21/04/23 19:08:33 DEBUG util.DefLoader: registering taskargs subtype: probes.models.condition.RefBasedConditionTaskArgs
+21/04/23 19:08:33 DEBUG util.DefLoader: registering taskargs subtype: probes.models.common.Command
+21/04/23 19:08:33 DEBUG util.DefLoader: registering taskargs subtype: probes.models.test.RefBasedTestTaskArgs
+21/04/23 19:08:33 DEBUG util.DefLoader: registering task subtype: probes.models.test.TestTask
+21/04/23 19:08:33 DEBUG util.DefLoader: registering task subtype: probes.models.condition.ConditionTask
+21/04/23 19:08:33 DEBUG util.DefLoader: registering task subtype: probes.models.noop.UniTask
+21/04/23 19:08:33 DEBUG util.DefLoader: registering task subtype: probes.models.iterator.IteratorTask
+21/04/23 19:08:33 DEBUG util.DefLoader: registering task subtype: probes.models.noop.NoOpTask
+21/04/23 19:08:33 DEBUG util.DefLoader: registering exectype subtype: probes.models.executiontype.LocalExecutionType
+21/04/23 19:08:33 DEBUG util.DefLoader: registering exectype subtype: probes.models.executiontype.SSHExecutionType
+21/04/23 19:08:33 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.UserInputBasedNameResolver
+21/04/23 19:08:33 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.PropsFileBasedNameResolver
+21/04/23 19:08:33 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.EnvBasedNameResolver
+21/04/23 19:08:33 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.CommandBasedNameResolver
+21/04/23 19:08:33 DEBUG util.DefLoader: registering nameresolver subtype: probes.models.nameresolver.RefBasedNameResolver
+21/04/23 19:08:33 DEBUG util.DefLoader: registering variables subtype: probes.models.variables.SingleValuedVariable
+21/04/23 19:08:33 DEBUG util.DefLoader: registering variables subtype: probes.models.variables.Collection
+21/04/23 19:08:33 DEBUG util.DefLoader: registering variables subtype: probes.models.variables.StringParsedCollection
+21/04/23 19:08:33 DEBUG util.DefLoader: registering variables subtype: probes.models.variables.ListBasedCollection
+21/04/23 19:08:33 DEBUG util.DefLoader: Loading ./modules/infa/eic/graph-corruption.json
+21/04/23 19:08:33 INFO nameresolver.UserInputBasedNameResolver: loaded from cache [uin.1619184777192] {domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}
+21/04/23 19:08:33 INFO models.TestSuiteDefn: running task[probes.models.test.TestTask :: chk-res-case-sensitivity-change]
+21/04/23 19:08:33 INFO models.Task: running task : [probes.models.test.TestTask :: chk-res-case-sensitivity-change]
+21/04/23 19:08:33 INFO test.TestTask: running test : [probes.models.test.TestTask :: chk-res-case-sensitivity-change]
+21/04/23 19:08:33 INFO models.Task: Bef resolve(${INFA_HOME}) = [RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={})]
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = RefBasedNameResolver(ref=infa.isp.service-props-provider, inputs={}) for = INFA_HOME
+21/04/23 19:08:33 DEBUG util.DefLoader: Loading ./modules/infa/isp/service-props-provider.json
+21/04/23 19:08:33 DEBUG util.DefLoader: file not found exception for: ./modules/infa/isp/service-props-provider.json
+21/04/23 19:08:33 DEBUG util.DefLoader: Loading ./modules/infa/isp/module.json
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = CommandBasedNameResolver(cmd=Command(cmd=${PROBES_HOME}/bin/domainutil/run, cwd=null, artifacts=[], arguments=[${domainName}, ${serviceName}, ${domainUserName}, ${domainPassword}, ${securityDomain}], environment=[], mergeStreams=true, inheritIo=false), props={}) for = INFA_HOME
+21/04/23 19:08:33 INFO models.Task: Bef resolve(${domainName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainName
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainName
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainName
+21/04/23 19:08:33 INFO models.Task: Bef resolve(${serviceName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = serviceName
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = serviceName
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = serviceName
+21/04/23 19:08:33 INFO models.Task: Bef resolve(${domainUserName}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainUserName
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainUserName
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainUserName
+21/04/23 19:08:33 INFO models.Task: Bef resolve(${domainPassword}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = domainPassword
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = domainPassword
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = domainPassword
+21/04/23 19:08:33 INFO models.Task: Bef resolve(${securityDomain}) = [MapBasedNameResolver(inputs={})]
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = MapBasedNameResolver(inputs={}) for = securityDomain
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = securityDomain
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = securityDomain
+21/04/23 19:08:33 INFO executiontype.CommandExecutor: starting process : java.lang.ProcessBuilder@3d299e3
+21/04/23 19:08:33 INFO executiontype.CommandExecutor: process finished with code = 127
+21/04/23 19:08:33 WARN nameresolver.CommandBasedNameResolver: Couldn't resolve INFA_HOMEas command failed to execute
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = EnvBasedNameResolver() for = INFA_HOME
+21/04/23 19:08:33 DEBUG nameresolver.NameResolver: refnr = UserInputBasedNameResolver(cache={domainUserName=a, securityDomain=a, domainName=D_Colorad, domainPassword=a, serviceName=a}, lastFile=null) for = INFA_HOME

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# build the stupid thing
+if [ "$DEBUG" == "true" ]
+then
+    mvn clean install
+fi
+
+# needed to load modules and used by tests to refer to binaries
+export PROBES_HOME=$PWD
+
+cmd=$1
+
+if [ "$cmd" == "server" ]
+then
+    java -jar target/probes.jar dui > uiconfig.json
+    python -m SimpleHTTPServer 9090
+else
+    java -jar target/probes.jar $*
+fi
